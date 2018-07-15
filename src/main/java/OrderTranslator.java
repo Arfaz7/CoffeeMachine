@@ -6,7 +6,11 @@ public class OrderTranslator {
 
         switch(order.getDrinkType()) {
             case CHOCOLATE:
-                translation += "H";
+                translation = "H";
+                break;
+
+            case COFFEE:
+                translation = "C";
                 break;
         }
 

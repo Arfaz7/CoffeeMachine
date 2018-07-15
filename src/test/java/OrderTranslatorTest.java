@@ -13,4 +13,15 @@ public class OrderTranslatorTest {
         assertTrue(translatedOrder.equals("H"));
 
     }
+
+    @Test
+    public void translateCoffee() {
+        CustomerOrder chocolate = new CustomerOrder(DrinkType.COFFEE);
+
+        String translatedOrder = OrderTranslator.translate(chocolate);
+
+        assertTrue(translatedOrder.equals("C"));
+
+    }
+
 }
