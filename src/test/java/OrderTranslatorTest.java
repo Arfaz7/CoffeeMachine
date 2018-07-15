@@ -10,7 +10,7 @@ public class OrderTranslatorTest {
 
         String translatedOrder = OrderTranslator.translate(chocolate);
 
-        assertTrue(translatedOrder.equals("H::"));
+        assertTrue(translatedOrder.equals("H"));
 
     }
 }
