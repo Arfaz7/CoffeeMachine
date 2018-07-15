@@ -134,6 +134,46 @@ public class OrderTranslatorTest {
     }
 
     @Test
+    public void translateExtraHotCoffee() {
+        CustomerOrder coffee = new CustomerOrder(DrinkType.COFFEE, 0, 2.3, true);
+
+        String result = OrderTranslator.translate(coffee);
+        String expected = "Ch::";
+
+        assertTrue(result.equals(expected));
+    }
+
+    @Test
+    public void translateExtraHotCoffeeWithSugar() {
+        CustomerOrder coffee = new CustomerOrder(DrinkType.COFFEE, 2, 2.3, true);
+
+        String result = OrderTranslator.translate(coffee);
+        String expected = "Ch:2:0";
+
+        assertTrue(result.equals(expected));
+    }
+
+    @Test
+    public void translateExtraHotTea() {
+        CustomerOrder tea = new CustomerOrder(DrinkType.TEA, 0, 2.3, true);
+
+        String result = OrderTranslator.translate(tea);
+        String expected = "Th::";
+
+        assertTrue(result.equals(expected));
+    }
+
+    @Test
+    public void translateExtraHotTeaWithSugar() {
+        CustomerOrder tea = new CustomerOrder(DrinkType.TEA, 2, 2.3, true);
+
+        String result = OrderTranslator.translate(tea);
+        String expected = "Th:2:0";
+
+        assertTrue(result.equals(expected));
+    }
+
+    @Test
     public void translateExtraHotOrangeJuice() {
         CustomerOrder orangeJuice = new CustomerOrder(DrinkType.ORANGE_JUICE, 0, 2.3, true);
 
