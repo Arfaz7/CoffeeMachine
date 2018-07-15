@@ -1,10 +1,26 @@
+import java.util.HashMap;
+
 public class OrderTranslator {
 
     private final static int MAX_SUGAR = 2;
 
+    private HashMap<DrinkType, Double> prices;
 
-    public static String translate(CustomerOrder order) {
+    public static String order(final CustomerOrder order) {
+
+        if(order.getMoney() >= order.getPrices().get(order.getDrinkType())) {
+            return translate(order);
+        }
+
+        else {
+            double difference = order.getPrices().get(order.getDrinkType()) - order.getMoney();
+            return translate("Please insert " + difference + " euros");
+        }
+    }
+
+    public static String translate(final CustomerOrder order) {
         String translation = "";
+
 
         switch(order.getDrinkType()) {
             case CHOCOLATE:
@@ -37,4 +53,6 @@ public class OrderTranslator {
     public static String translate(String message) {
         return "M:" + message;
     }
+
+
 }

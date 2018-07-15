@@ -1,14 +1,19 @@
+import java.util.HashMap;
+
 public class CustomerOrder {
 
     private DrinkType drinkType;
     private int sugarNb;
     private double money;
 
+    private static HashMap<DrinkType, Double> prices;
+
 
     public CustomerOrder(DrinkType drinkType, int sugarNb, double money) {
         this.drinkType = drinkType;
         this.sugarNb = sugarNb;
         this.money = money;
+
     }
 
     public CustomerOrder(DrinkType drinkType, int sugarNb) {
@@ -18,6 +23,18 @@ public class CustomerOrder {
     public CustomerOrder(DrinkType drinkType) {
 
         this(drinkType, 0);
+    }
+
+    public HashMap<DrinkType, Double> getPrices(){
+
+        if(prices == null) {
+            prices = new HashMap<DrinkType, Double>();
+            prices.put(DrinkType.CHOCOLATE, 0.5);
+            prices.put(DrinkType.COFFEE, 0.6);
+            prices.put(DrinkType.TEA, 0.4);
+        }
+
+        return prices;
     }
 
     public DrinkType getDrinkType() {
