@@ -133,6 +133,14 @@ public class OrderTranslatorTest {
         assertTrue(result.equals(expected));
     }
 
-    
+    @Test
+    public void translateExtraHotOrangeJuice() {
+        CustomerOrder orangeJuice = new CustomerOrder(DrinkType.ORANGE_JUICE, 0, 2.3, true);
+
+        String result = OrderTranslator.translate(orangeJuice);
+        String expected = "O::";
+
+        assertTrue(result.equals(expected));
+    }
 
 }
