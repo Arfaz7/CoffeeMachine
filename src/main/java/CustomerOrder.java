@@ -32,6 +32,7 @@ public class CustomerOrder {
             prices.put(DrinkType.CHOCOLATE, 0.5);
             prices.put(DrinkType.COFFEE, 0.6);
             prices.put(DrinkType.TEA, 0.4);
+            prices.put(DrinkType.ORANGE_JUICE, 0.6);
         }
 
         return prices;

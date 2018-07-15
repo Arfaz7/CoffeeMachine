@@ -123,4 +123,14 @@ public class OrderTranslatorTest {
         assertTrue(result.equals(expected));
     }
 
+    @Test
+    public void translateOrangeJuice() {
+        CustomerOrder orangeJuice = new CustomerOrder(DrinkType.ORANGE_JUICE);
+
+        String result = OrderTranslator.translate(orangeJuice);
+        String expected = "O::";
+
+        assertTrue(result.equals(expected));
+    }
+
 }
