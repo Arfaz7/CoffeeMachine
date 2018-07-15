@@ -24,21 +24,27 @@ public class OrderTranslator {
 
         switch(order.getDrinkType()) {
             case CHOCOLATE:
-                translation = "H:";
+                translation = "H";
                 break;
 
             case COFFEE:
-                translation = "C:";
+                translation = "C";
                 break;
 
             case TEA:
-                translation = "T:";
+                translation = "T";
                 break;
 
             case ORANGE_JUICE:
-                translation = "O:";
+                translation = "O";
                 break;
         }
+
+        if(order.getDrinkType() != DrinkType.ORANGE_JUICE && order.isExtraHot()) {
+            translation += "h";
+        }
+
+        translation += ":";
 
         if(order.getDrinkType() != DrinkType.ORANGE_JUICE && order.getSugarNb() > 0) {
             translation += order.getSugarNb() > MAX_SUGAR ? MAX_SUGAR : order.getSugarNb();
@@ -48,7 +54,6 @@ public class OrderTranslator {
         else {
             translation += ":";
         }
-
 
         return translation;
 

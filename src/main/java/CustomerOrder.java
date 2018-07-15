@@ -67,4 +67,12 @@ public class CustomerOrder {
     public void setMoney(double money) {
         this.money = money;
     }
+
+    public boolean isExtraHot() {
+        return extraHot;
+    }
+
+    public void setExtraHot(boolean extraHot) {
+        this.extraHot = extraHot;
+    }
 }
