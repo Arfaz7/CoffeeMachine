@@ -51,4 +51,11 @@ public class CustomerOrderTest {
         assertEquals(DrinkType.TEA, teaWithSugar.getDrinkType());
         assertEquals(2, teaWithSugar.getSugarNb());
     }
+
+    @Test
+    public void orderOrangeJuice(){
+        CustomerOrder orangeJuice  = new CustomerOrder(DrinkType.ORANGE_JUICE);
+
+        assertEquals(DrinkType.ORANGE_JUICE, orangeJuice.getDrinkType());
+    }
 }
