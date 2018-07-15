@@ -2,6 +2,7 @@ public class OrderTranslator {
 
     private final static int MAX_SUGAR = 2;
 
+
     public static String translate(CustomerOrder order) {
         String translation = "";
 

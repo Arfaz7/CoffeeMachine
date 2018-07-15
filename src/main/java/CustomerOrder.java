@@ -11,9 +11,13 @@ public class CustomerOrder {
         this.money = money;
     }
 
-    public CustomerOrder(DrinkType drinkType, double money) {
+    public CustomerOrder(DrinkType drinkType, int sugarNb) {
+        this(drinkType, sugarNb, 0);
+    }
 
-        this(drinkType, 0, money);
+    public CustomerOrder(DrinkType drinkType) {
+
+        this(drinkType, 0);
     }
 
     public DrinkType getDrinkType() {

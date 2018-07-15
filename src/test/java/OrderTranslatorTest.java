@@ -16,9 +16,9 @@ public class OrderTranslatorTest {
 
     @Test
     public void translateCoffee() {
-        CustomerOrder chocolate = new CustomerOrder(DrinkType.COFFEE);
+        CustomerOrder coffee = new CustomerOrder(DrinkType.COFFEE);
 
-        String translatedOrder = OrderTranslator.translate(chocolate);
+        String translatedOrder = OrderTranslator.translate(coffee);
         String expected = "C::";
 
         assertTrue(translatedOrder.equals(expected));
@@ -26,20 +26,10 @@ public class OrderTranslatorTest {
 
     @Test
     public void translateTea() {
-        CustomerOrder chocolate = new CustomerOrder(DrinkType.TEA);
+        CustomerOrder tea = new CustomerOrder(DrinkType.TEA);
 
-        String translatedOrder = OrderTranslator.translate(chocolate);
+        String translatedOrder = OrderTranslator.translate(tea);
         String expected = "T::";
-
-        assertTrue(translatedOrder.equals(expected));
-    }
-
-    @Test
-    public void translateChocolateWithNegativeSugar() {
-        CustomerOrder chocolate = new CustomerOrder(DrinkType.CHOCOLATE, -1);
-
-        String translatedOrder = OrderTranslator.translate(chocolate);
-        String expected = "H::";
 
         assertTrue(translatedOrder.equals(expected));
     }
@@ -56,9 +46,9 @@ public class OrderTranslatorTest {
 
     @Test
     public void translateCoffeeWithSugar() {
-        CustomerOrder chocolate = new CustomerOrder(DrinkType.COFFEE, 2);
+        CustomerOrder coffee = new CustomerOrder(DrinkType.COFFEE, 2);
 
-        String translatedOrder = OrderTranslator.translate(chocolate);
+        String translatedOrder = OrderTranslator.translate(coffee);
         String expected = "C:2:0";
 
         assertTrue(translatedOrder.equals(expected));
@@ -66,19 +56,29 @@ public class OrderTranslatorTest {
 
     @Test
     public void translateTeaWithSugar() {
-        CustomerOrder chocolate = new CustomerOrder(DrinkType.TEA, 2);
+        CustomerOrder tea = new CustomerOrder(DrinkType.TEA, 2);
 
-        String translatedOrder = OrderTranslator.translate(chocolate);
+        String translatedOrder = OrderTranslator.translate(tea);
         String expected = "T:2:0";
 
         assertTrue(translatedOrder.equals(expected));
     }
 
     @Test
-    public void translateTeaWithMaxSugar() {
-        CustomerOrder chocolate = new CustomerOrder(DrinkType.TEA, 5);
+    public void translateChocolateWithNegativeSugar() {
+        CustomerOrder chocolate = new CustomerOrder(DrinkType.CHOCOLATE, -1);
 
         String translatedOrder = OrderTranslator.translate(chocolate);
+        String expected = "H::";
+
+        assertTrue(translatedOrder.equals(expected));
+    }
+
+    @Test
+    public void translateTeaWithMaxSugar() {
+        CustomerOrder tea = new CustomerOrder(DrinkType.TEA, 5);
+
+        String translatedOrder = OrderTranslator.translate(tea);
         String expected = "T:2:0";
 
         assertTrue(translatedOrder.equals(expected));
@@ -91,6 +91,16 @@ public class OrderTranslatorTest {
         String expected = "M:No more Coffee";
 
         assertTrue(translatedOrder.equals(expected));
+    }
+
+    @Test
+    public void noMoneyInserted() {
+        CustomerOrder chocolate = new CustomerOrder(DrinkType.CHOCOLATE, 0);
+
+        String result = OrderTranslator.translate(chocolate);
+        String expected = "M:Please insert 0.5 euros";
+
+        assertTrue(result.equals(expected));
     }
 
 }
