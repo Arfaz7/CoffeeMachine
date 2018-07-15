@@ -26,7 +26,7 @@ public class MoneyOrderTranslator {
     }
 
     @Test
-    public void tooMuchhMoneyInserted() {
+    public void tooMuchMoneyInserted() {
         CustomerOrder chocolate = new CustomerOrder(DrinkType.CHOCOLATE, 0, 1.6);
 
         String result = OrderTranslator.order(chocolate);
