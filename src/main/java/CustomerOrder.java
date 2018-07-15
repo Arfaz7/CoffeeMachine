@@ -5,14 +5,20 @@ public class CustomerOrder {
     private DrinkType drinkType;
     private int sugarNb;
     private double money;
+    private boolean extraHot;
 
     private static HashMap<DrinkType, Double> prices;
 
-
-    public CustomerOrder(DrinkType drinkType, int sugarNb, double money) {
+    public CustomerOrder(DrinkType drinkType, int sugarNb, double money, boolean extraHot) {
         this.drinkType = drinkType;
         this.sugarNb = sugarNb;
         this.money = money;
+        this.extraHot = extraHot;
+
+    }
+
+    public CustomerOrder(DrinkType drinkType, int sugarNb, double money) {
+        this(drinkType, sugarNb, money, false);
 
     }
 
