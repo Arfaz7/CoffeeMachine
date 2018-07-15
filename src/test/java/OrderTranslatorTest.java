@@ -84,8 +84,6 @@ public class OrderTranslatorTest {
         assertTrue(translatedOrder.equals(expected));
     }
 
-
-
     @Test
     public void translateMessage() {
 
