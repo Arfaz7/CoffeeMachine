@@ -133,4 +133,34 @@ public class OrderTranslatorTest {
         assertTrue(result.equals(expected));
     }
 
+    @Test
+    public void translateOrangeJuiceWithSugar() {
+        CustomerOrder orangeJuice = new CustomerOrder(DrinkType.ORANGE_JUICE, 2);
+
+        String result = OrderTranslator.translate(orangeJuice);
+        String expected = "O::";
+
+        assertTrue(result.equals(expected));
+    }
+
+    @Test
+    public void notEnoughMoneyOrangeJuice() {
+        CustomerOrder orangeJuice = new CustomerOrder(DrinkType.ORANGE_JUICE, 0, 0.3);
+
+        String result = OrderTranslator.order(orangeJuice);
+        String expected = "M:Please insert 0.3 euros";
+
+        assertTrue(result.equals(expected));
+    }
+
+    @Test
+    public void tooMuchMoneyOrangeJuice() {
+        CustomerOrder orangeJuice = new CustomerOrder(DrinkType.ORANGE_JUICE, 0, 2.3);
+
+        String result = OrderTranslator.order(orangeJuice);
+        String expected = "O::";
+
+        assertTrue(result.equals(expected));
+    }
+
 }

@@ -34,9 +34,13 @@ public class OrderTranslator {
             case TEA:
                 translation = "T:";
                 break;
+
+            case ORANGE_JUICE:
+                translation = "O:";
+                break;
         }
 
-        if(order.getSugarNb() > 0) {
+        if(order.getDrinkType() != DrinkType.ORANGE_JUICE && order.getSugarNb() > 0) {
             translation += order.getSugarNb() > MAX_SUGAR ? MAX_SUGAR : order.getSugarNb();
             translation += ":0";
         }
