@@ -9,8 +9,9 @@ public class OrderTranslatorTest {
         CustomerOrder chocolate = new CustomerOrder(DrinkType.CHOCOLATE);
 
         String translatedOrder = OrderTranslator.translate(chocolate);
+        String expected = "H::";
 
-        assertTrue(translatedOrder.equals("H::"));
+        assertTrue(translatedOrder.equals(expected));
     }
 
     @Test
@@ -18,8 +19,9 @@ public class OrderTranslatorTest {
         CustomerOrder chocolate = new CustomerOrder(DrinkType.COFFEE);
 
         String translatedOrder = OrderTranslator.translate(chocolate);
+        String expected = "C::";
 
-        assertTrue(translatedOrder.equals("C::"));
+        assertTrue(translatedOrder.equals(expected));
     }
 
     @Test
@@ -27,8 +29,9 @@ public class OrderTranslatorTest {
         CustomerOrder chocolate = new CustomerOrder(DrinkType.TEA);
 
         String translatedOrder = OrderTranslator.translate(chocolate);
+        String expected = "T::";
 
-        assertTrue(translatedOrder.equals("T::"));
+        assertTrue(translatedOrder.equals(expected));
     }
 
     @Test
@@ -36,8 +39,9 @@ public class OrderTranslatorTest {
         CustomerOrder chocolate = new CustomerOrder(DrinkType.CHOCOLATE, 1);
 
         String translatedOrder = OrderTranslator.translate(chocolate);
+        String expected = "H:1:0";
 
-        assertTrue(translatedOrder.equals("H:1:0"));
+        assertTrue(translatedOrder.equals(expected));
     }
 
     @Test
@@ -45,8 +49,9 @@ public class OrderTranslatorTest {
         CustomerOrder chocolate = new CustomerOrder(DrinkType.COFFEE, 2);
 
         String translatedOrder = OrderTranslator.translate(chocolate);
+        String expected = "C:2:0";
 
-        assertTrue(translatedOrder.equals("C:2:0"));
+        assertTrue(translatedOrder.equals(expected));
     }
 
     @Test
@@ -54,8 +59,18 @@ public class OrderTranslatorTest {
         CustomerOrder chocolate = new CustomerOrder(DrinkType.TEA, 3);
 
         String translatedOrder = OrderTranslator.translate(chocolate);
+        String expected = "T:3:0";
 
-        assertTrue(translatedOrder.equals("T:3:0"));
+        assertTrue(translatedOrder.equals(expected));
+    }
+
+    @Test
+    public void translateMessage() {
+
+        String translatedOrder = OrderTranslator.translate("No more Coffee");
+        String expected = "M:No more Coffee";
+
+        assertTrue(translatedOrder.equals(expected));
     }
 
 }

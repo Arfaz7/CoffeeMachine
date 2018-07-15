@@ -30,4 +30,8 @@ public class OrderTranslator {
         return translation;
 
     }
+
+    public static String translate(String message) {
+        return "M:" + message;
+    }
 }
