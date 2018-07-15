@@ -10,8 +10,7 @@ public class OrderTranslatorTest {
 
         String translatedOrder = OrderTranslator.translate(chocolate);
 
-        assertTrue(translatedOrder.equals("H"));
-
+        assertTrue(translatedOrder.equals("H::"));
     }
 
     @Test
@@ -20,8 +19,16 @@ public class OrderTranslatorTest {
 
         String translatedOrder = OrderTranslator.translate(chocolate);
 
-        assertTrue(translatedOrder.equals("C"));
+        assertTrue(translatedOrder.equals("C::"));
+    }
 
+    @Test
+    public void translateTea() {
+        CustomerOrder chocolate = new CustomerOrder(DrinkType.TEA);
+
+        String translatedOrder = OrderTranslator.translate(chocolate);
+
+        assertTrue(translatedOrder.equals("T::"));
     }
 
 }
