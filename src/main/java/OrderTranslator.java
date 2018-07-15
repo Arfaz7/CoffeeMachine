@@ -1,5 +1,6 @@
 public class OrderTranslator {
 
+    private final static int MAX_SUGAR = 2;
 
     public static String translate(CustomerOrder order) {
         String translation = "";
@@ -19,7 +20,8 @@ public class OrderTranslator {
         }
 
         if(order.getSugarNb() > 0) {
-            translation += order.getSugarNb() + ":0";
+            translation += order.getSugarNb() > MAX_SUGAR ? MAX_SUGAR : order.getSugarNb();
+            translation += ":0";
         }
 
         else {
